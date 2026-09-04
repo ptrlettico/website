@@ -1,0 +1,147 @@
+/* Color Palette & Base Rules */
+body {
+    background-color: #0093AF; /* Official Munsell Blue */
+    color: #ffffff; /* Crisp white text for clear readability */
+    margin: 0;
+    padding: 40px 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+    box-sizing: border-box;
+}
+
+/* Header Text Styles */
+header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+header h1 {
+    font-family: "Times New Roman", Times, serif;
+    font-size: 3rem;
+    font-weight: normal;
+    margin: 0 0 10px 0;
+    letter-spacing: 1px;
+}
+
+header .subtitle {
+    font-family: "Times New Roman", Times, serif;
+    font-style: italic;
+    font-size: 1.25rem;
+    margin: 0;
+    opacity: 0.9;
+}
+
+/* Profile Image Area */
+.profile-image-container {
+    width: 220px;
+    height: 220px;
+    margin: 0 auto 40px auto;
+    border: 2px solid #ffffff;
+    background-color: rgba(255, 255, 255, 0.1);
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.profile-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+/* Hides placeholder text if an actual image loads successfully */
+.profile-image:not([src="profile.jpg"]) + .image-placeholder-text, 
+.profile-image[src=""] + .image-placeholder-text {
+    display: none;
+}
+
+.image-placeholder-text {
+    position: absolute;
+    font-size: 0.8rem;
+    padding: 10px;
+    font-family: monospace;
+    opacity: 0.7;
+}
+
+/* Functional Tab System */
+.tabs-container {
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 650px;
+    width: 100%;
+    margin: 0 auto;
+    background: rgba(0, 0, 0, 0.15);
+    border-radius: 4px;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.tabs-container input[type="radio"] {
+    display: none; /* Hide standard radio buttons */
+}
+
+.tabs-container label {
+    padding: 10px 20px;
+    font-family: "Times New Roman", Times, serif;
+    font-size: 1.15rem;
+    cursor: pointer;
+    border-bottom: 2px solid transparent;
+    margin-right: 10px;
+    transition: all 0.2s ease;
+}
+
+.tabs-container label:hover {
+    opacity: 0.8;
+}
+
+/* Dynamic Tab Content switching using CSS selectors */
+.tabs-container .tab-content {
+    width: 100%;
+    display: none;
+    order: 1;
+    margin-top: 20px;
+    font-family: Arial, sans-serif; /* Clean font for body data */
+    line-height: 1.6;
+}
+
+.tabs-container input[type="radio"]:checked + label {
+    border-bottom: 2px solid #ffffff;
+    font-weight: bold;
+}
+
+#tab-research:checked ~ div:nth-of-type(1),
+#tab-talks:checked ~ div:nth-of-type(2) {
+    display: block;
+}
+
+/* Tab Content Typography */
+.tab-content ul {
+    padding-left: 20px;
+    margin: 0;
+}
+
+.tab-content li {
+    margin-bottom: 20px;
+}
+
+.tab-content a {
+    color: #ffe600; /* High contrast yellow links */
+    text-decoration: none;
+}
+
+.tab-content a:hover {
+    text-decoration: underline;
+}
+
+footer {
+    margin-top: auto;
+    padding-top: 40px;
+    font-family: monospace;
+    font-size: 0.8rem;
+    opacity: 0.6;
+}
